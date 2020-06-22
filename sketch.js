@@ -11,10 +11,12 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let scr = createCanvas(windowWidth, windowHeight);
   cenario = new Cenario(imagemCenario,3);
   personagem = new Personagem(imagemPersonagem);
-  bgm.play();
+  bgm.setVolume(0.1);
+  bgm.loop();
+  frameRate(22);
 }
 
 function draw() {

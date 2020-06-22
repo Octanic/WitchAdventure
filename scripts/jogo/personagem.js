@@ -1,5 +1,5 @@
 class Personagem{
-    constructor(imagem, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=2){
+    constructor(imagem, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1){
         //sprite block horizontal position
         this.spriteOffsetX = spriteOffsetX; 
         
@@ -18,7 +18,7 @@ class Personagem{
         //linear array containing the horizontal and vertical positions to update the blocks
         const sprGen = new SpriteGenerator(spriteOffsetX,spriteOffsetY,spriteFrameCount,spriteFrameLine);
         this.matriz = sprGen.SpriteArray;
-        
+
         //current frame being drawn
         this.frame = 0;
         //the spritesheet
