@@ -16,7 +16,9 @@ class Personagem{
         this.spriteFrameLine = spriteFrameLine; 
 
         //linear array containing the horizontal and vertical positions to update the blocks
-        this.matriz = this.generateSpriteArray(spriteOffsetX,spriteOffsetY,spriteFrameCount,spriteFrameLine);
+        const sprGen = new SpriteGenerator(spriteOffsetX,spriteOffsetY,spriteFrameCount,spriteFrameLine);
+        this.matriz = sprGen.SpriteArray;
+        
         //current frame being drawn
         this.frame = 0;
         //the spritesheet
@@ -45,17 +47,5 @@ class Personagem{
         }
     }
 
-    //function used to generate the sprite array.
-    //  we need the block horizontal and vertical positions, and the size of the spritesheet.
-    generateSpriteArray(spriteOffsetX,spriteOffsetY,spriteFrameCount,spriteFrameLine){
-        let a = [];
-        for(let y=0; y<(spriteFrameCount/spriteFrameLine);y++){
-            for(let x=0; x<spriteFrameLine; x++){            
-                a.push([spriteOffsetX * (x==spriteFrameLine?0:x), 
-                        spriteOffsetY * (y==spriteFrameCount/spriteFrameLine?0:y) ]);
-
-            }
-        }
-        return a;
-    }
+    
 }
