@@ -56,7 +56,7 @@ function setup() {
                         slimeConfig.speed);
 
   bgm.setVolume(0.1);
-  //bgm.loop();
+  bgm.loop();
   frameRate(22);
 }
 
@@ -89,6 +89,7 @@ function endGameNow(){
   textSize(32);
   text("Pressione <ENTER> para recomeçar",width/2-260,height-50)
   endgame = true;
+  bgm.stop();
 }
 
 function keyPressed(){
