@@ -1,51 +1,62 @@
-class Personagem{
-    constructor(imagem, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1){
-        //sprite block horizontal position
-        this.spriteOffsetX = spriteOffsetX; 
+class Personagem extends Animacao {
+    constructor(imagem,
+        x=0,y=0, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1){
+        //y=height-this.spriteOffsetY/this.spriteZoomOut;
+        super(imagem,x,y=height-spriteOffsetY/spriteZoomOut, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1);
         
-        //sprite block vertical position
-        this.spriteOffsetY = spriteOffsetY;
+        this.baseY = y; //height-spriteOffsetY/spriteZoomOut;
 
-        //magic number to "zoom out" the sprite
-        this.spriteZoomOut = spriteZoomOut; 
+        this.jumpSpeed = 0;
+        this.gravity = 6;
 
-        //total of frames from my spritesheet
-        this.spriteFrameCount = spriteFrameCount;
-        
-        //total of frames of an entire line of my spritesheet
-        this.spriteFrameLine = spriteFrameLine; 
+        this.jumpLimit=2;
+        this.jumps = 0;
 
-        //linear array containing the horizontal and vertical positions to update the blocks
-        const sprGen = new SpriteGenerator(spriteOffsetX,spriteOffsetY,spriteFrameCount,spriteFrameLine);
-        this.matriz = sprGen.SpriteArray;
-
-        //current frame being drawn
-        this.frame = 0;
-        //the spritesheet
-        this.imagem = imagem;
+        this._w = this.spriteOffsetX/this.spriteZoomOut;
+        this._h = this.spriteOffsetY/this.spriteZoomOut;
     }
 
-    exibe(){
-        image(this.imagem, 
-                0, //x
-                height-this.spriteOffsetY/this.spriteZoomOut, //y
-                this.spriteOffsetX/this.spriteZoomOut, //width
-                this.spriteOffsetY/this.spriteZoomOut, //height
-                this.matriz[this.frame][0], //sprite x
-                this.matriz[this.frame][1], //sprite y
-                this.spriteOffsetX, //sprite width
-                this.spriteOffsetY); //sprite height
-        this.anima();
-    }
-
-    //Function used to animate the frames
-    anima() {
-        this.frame++;
-
-        if (this.frame >= this.spriteFrameCount-1){
-            this.frame = 0;
+    pula(){
+        if (this.jumps < this.jumpLimit){
+            this.jumpSpeed = -50;
+            this.jumps++;
         }
     }
 
-    
+    aplicaGravidade(){
+        this.y += this.jumpSpeed;
+        this.jumpSpeed += this.gravity;
+
+        if (this.y > this.baseY){
+            this.y = this.baseY;
+            this.jumps = 0;
+        }
+    }
+
+    estaColidindo(inimigo){
+        const precisionW = .4;
+        const precisionH = .7;
+        //For debug purposes
+        // rect(this.x+30,
+        //     this.y+30,
+        //     this._w*precisionW,
+        //     this._h*precisionH);
+        
+        // rect(inimigo.x,
+        //     inimigo.y,
+        //     inimigo.spriteOffsetX*precisionW,
+        //     inimigo.spriteOffsetY*precisionH)
+
+        const colisao = collideRectRect(
+            this.x+30,
+            this.y+30,
+            this._w*precisionW,
+            this._h*precisionH,
+            inimigo.x,
+            inimigo.y,
+            inimigo.spriteOffsetX*precisionW,
+            inimigo.spriteOffsetY*precisionH);
+
+        return colisao;
+    }
 }
