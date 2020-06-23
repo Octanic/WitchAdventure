@@ -41,7 +41,7 @@ function setup() {
   const scr = createCanvas(windowWidth, windowHeight);
   cenarios = [];
   for(let i=0;i<LAYER_SCENARIO_COUNT;i++){
-    cenarios.push(new Cenario(imagensCenarios[i],2/(1/Math.max(i,1))));
+    cenarios.push(new Cenario(imagensCenarios[i], i*2));
   }
   endgame = false;
   personagem = new Personagem(imagemPersonagem);
