@@ -22,6 +22,7 @@ I have used BitBLT, XNA to develop games back in the days, and it seems way more
 I hope I can develop a game based on this story! 
 
 # Highlights
+## Sprite Generator
 I have created a `SpriteGenerator` class, which will handle all the sprite drawing. Instead of having hardcoded numbers on my code, I decided to calculate it based on the sprite offsets
 
 For that, I'll need
@@ -30,9 +31,13 @@ For that, I'll need
 - The number of sprites the spritesheet has
 - How many sprites per line the spritesheet has
 
-With those variables, I can calculate *almost* any spritesheet, except when they are irregular (which I'm doing something to prevent that. I can either
-- have a spritesheet completely filled (or maybe flattened into one simple line)
-- create a workaround when I cannot divide the spritesheet using offsets.
+With those variables, I can calculate *almost* every spritesheet, ~~except when they are irregular (which I'm doing something to prevent that. I can either~~ 
+**UPDATE:** Now the ``SpriteGenerator`` can *ignore frames*. That's also useful when people put credits inside the spritesheet, so we just skip the last sprites. Also, I moved everything to a config generator mini factory. So it will be easier to control it without having a mess inside the ``sketch.js``.
+
+Unless someone decides really hard to create a spritesheet with the purpose of defeating my ``SpriteGenerator``. But since all my sprites are both regular and irregular ~~and not trying hard to defeat my ``SpriteGenerator``~~, it will be fine.
+
+## Erratic creatures
+I can give chaos to creatures. By setting this parameter ``isErratic: true`` in the creature configuration, Creatures will change their speeds and may go up and down randomly. This is specially nice for ``flying creatures``. It's an idea first, I think I can improve it to be a little smoothier.
 
 # Final words
 I really don't feel like changing the sprites. I think I can make something with those sprites I was given. 
