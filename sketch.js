@@ -74,6 +74,7 @@ function setup() {
 
 function draw() {
   //Draw all layers, except the last
+  
   for(let i=0; i < LAYER_SCENARIO_COUNT - 1; i++){
     let cenario = cenarios[i];
     cenario.exibe();

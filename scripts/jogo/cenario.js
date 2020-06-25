@@ -8,8 +8,8 @@ class Cenario{
     }
   
     exibe(yPos=0){
-      image(this.image,this.x1,yPos,width,height);
-      image(this.image,this.x2,yPos,width,height);
+      image(this.image, this.x1, yPos, width, height);
+      image(this.image, this.x2, yPos, width, height);
   
     }
   
@@ -17,10 +17,10 @@ class Cenario{
       this.x1 -= this.speed;
       this.x2 -= this.speed;
   
-      if (this.x1 < -width){
+      if (this.x1 <= -width){
         this.x1 = width;
       }
-      if (this.x2 < -width){
+      if (this.x2 <= -width){
         this.x2 = width;
       }
   
