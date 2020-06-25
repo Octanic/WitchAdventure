@@ -60,7 +60,7 @@ class ConfigurationFactory{
                 break;
             case "troll":
                 this.configuration = {
-                    xPosition: width+2500,
+                    xPosition: width+300,
                     yPosition: height-400,
                     spriteFrameCount: 28,
                     spriteFrameLine: 5,
