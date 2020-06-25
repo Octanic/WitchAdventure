@@ -42,6 +42,12 @@ class Animacao{
         //checks if the subject is erratic, i.e. it moves up and down at will;
         this.isErratic = config.configuration.isErratic;
 
+        //hitBox enhancement parameters
+        this.hitBoxXOffset = config.configuration.hitBoxXOffset;
+        this.hitBoxYOffset = config.configuration.hitBoxYOffset;
+        this.hitBoxPrecisionW = config.configuration.hitBoxPrecisionW;
+        this.hitBoxPrecisionH = config.configuration.hitBoxPrecisionH;
+
         this.frame=0;
     }
 

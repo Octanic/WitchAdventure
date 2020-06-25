@@ -1,8 +1,8 @@
 class Personagem extends Animacao {
-    constructor(imagem, config){ // x=0, y=0, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1){
+    constructor(imagem, config) { 
         config.configuration.yPosition = height - config.configuration.spriteOffsetY / config.configuration.spriteZoomOut - config.configuration.variationY;
 
-        super(imagem, config);//x,y, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1);
+        super(imagem, config);
         
         this.baseY = config.configuration.yPosition;
 
@@ -15,6 +15,7 @@ class Personagem extends Animacao {
 
         this._w = this.spriteOffsetX/this.spriteZoomOut;
         this._h = this.spriteOffsetY/this.spriteZoomOut;
+        
     }
 
     pula(){
@@ -35,28 +36,28 @@ class Personagem extends Animacao {
     }
 
     estaColidindo(inimigo){
-        const precisionW = .4;
-        const precisionH = .7;
         //For debug purposes
-        // rect(this.x+30,
-        //     this.y+30,
-        //     this._w*precisionW,
-        //     this._h*precisionH);
+        // stroke("red");
+        // noFill();
+        // rect(this.x+this.hitBoxXOffset,
+        //     this.y+this.hitBoxXOffset,
+        //     this._w*this.hitBoxPrecisionW,
+        //     this._h*this.hitBoxPrecisionH);
         
-        // rect(inimigo.x,
-        //     inimigo.y,
-        //     inimigo.spriteOffsetX*precisionW,
-        //     inimigo.spriteOffsetY*precisionH)
+        // rect(inimigo.x+inimigo.hitBoxXOffset,
+        //     inimigo.y+inimigo.hitBoxYOffset,
+        //     inimigo.spriteOffsetX * inimigo.hitBoxPrecisionW,
+        //     inimigo.spriteOffsetY * inimigo.hitBoxPrecisionH)
 
         const colisao = collideRectRect(
-            this.x+30,
-            this.y+30,
-            this._w*precisionW,
-            this._h*precisionH,
-            inimigo.x,
-            inimigo.y,
-            inimigo.spriteOffsetX*precisionW,
-            inimigo.spriteOffsetY*precisionH);
+            this.x+this.hitBoxXOffset,
+            this.y+this.hitBoxXOffset,
+            this._w*this.hitBoxPrecisionW,
+            this._h*this.hitBoxPrecisionH,
+            inimigo.x+inimigo.hitBoxXOffset,
+            inimigo.y+inimigo.hitBoxYOffset,
+            inimigo.spriteOffsetX * inimigo.hitBoxPrecisionW,
+            inimigo.spriteOffsetY * inimigo.hitBoxPrecisionH);
 
         return colisao;
     }

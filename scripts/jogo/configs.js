@@ -11,7 +11,12 @@ class ConfigurationFactory{
             spriteZoomOut: 1,
             speed: 0,
             variationY:0,
-            ignoreLastSpriteFrames:0
+            ignoreLastSpriteFrames:0,
+            isErratic: false,
+            hitBoxXOffset:0,
+            hitBoxYOffset:0,
+            hitBoxPrecisionW:1,
+            hitBoxPrecisionH:1
         };
 
         switch (type){
@@ -27,7 +32,11 @@ class ConfigurationFactory{
                     speed: 0,
                     variationY: 30,
                     ignoreLastSpriteFrames:0,
-                    isErratic: false                    
+                    isErratic: false,
+                    hitBoxXOffset:60,
+                    hitBoxYOffset:30,
+                    hitBoxPrecisionW:.4,
+                    hitBoxPrecisionH:.7               
                 };
                 break;
             case "slime":
@@ -42,7 +51,11 @@ class ConfigurationFactory{
                     speed: 17,
                     variationY:30,
                     ignoreLastSpriteFrames:0,
-                    isErratic: false
+                    isErratic: false,
+                    hitBoxXOffset:20,
+                    hitBoxYOffset:0,
+                    hitBoxPrecisionW:1,
+                    hitBoxPrecisionH:1  
                 };
                 break;
             case "troll":
@@ -54,10 +67,14 @@ class ConfigurationFactory{
                     spriteOffsetX: 400,
                     spriteOffsetY: 400,
                     spriteZoomOut: 1,
-                    speed: 10,
+                    speed: 15,
                     variationY:0,
                     ignoreLastSpriteFrames: 2,
-                    isErratic: false
+                    isErratic: false,
+                    hitBoxXOffset:180,
+                    hitBoxYOffset:60, 
+                    hitBoxPrecisionW:.4,
+                    hitBoxPrecisionH:.7  
                 }
                 break;
             case "flyingSlime": {
@@ -72,7 +89,11 @@ class ConfigurationFactory{
                     speed: 13,
                     variationY:0,
                     ignoreLastSpriteFrames: 0,
-                    isErratic: true
+                    isErratic: true,
+                    hitBoxXOffset:50,
+                    hitBoxYOffset:30, 
+                    hitBoxPrecisionW:.5,
+                    hitBoxPrecisionH:.7  
                 };
                 break;
             }

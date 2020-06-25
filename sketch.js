@@ -77,6 +77,7 @@ function draw() {
   
   for(let i=0; i < LAYER_SCENARIO_COUNT - 1; i++){
     let cenario = cenarios[i];
+   
     cenario.exibe();
     cenario.move();
   }
@@ -133,7 +134,6 @@ function keyPressed(){
 
 //TODO:
 /*
-  fix collision
   one monster at a time
   begin game screen
   power up
