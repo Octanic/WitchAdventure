@@ -7,9 +7,9 @@ class Cenario{
       this.x2 = width;
     }
   
-    exibe(){
-      image(this.image,this.x1,0,width,height);
-      image(this.image,this.x2,0,width,height);
+    exibe(yPos=0){
+      image(this.image,this.x1,yPos,width,height);
+      image(this.image,this.x2,yPos,width,height);
   
     }
   

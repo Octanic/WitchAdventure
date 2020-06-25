@@ -1,25 +1,25 @@
 let imagensCenarios,
     imagemPersonagem,
-    imagemInimigo,
-    cenarios,
+    imagemSlime,
+    imagemTroll,
+    imagemSlimeVoador;
+
+let inimigos;
+
+let cenarios,
     bgm,
-    jumpSound,
-    personagem,
-    inimigo,
     gameover,
+    endgame,
+    jumpSound,
+    scoreBoard;
+
+let personagem,
+    slime,
+    troll,
     personagemDead,
-    endgame;
+    slimeVoador;
 
 const LAYER_SCENARIO_COUNT = 5;
-
-const slimeConfig = {
-  spriteFrameCount: 28,
-  spriteFrameLine: 4,
-  spriteOffsetX: 104,
-  spriteOffsetY: 104,
-  spriteZoomOut: 1,
-  speed: 10
-}
 
 function preload() {
   imagensCenarios = [];
@@ -30,55 +30,80 @@ function preload() {
   }
 
   imagemPersonagem = loadImage('imagens/personagem/correndo.png');
-  imagemInimigo = loadImage('imagens/inimigos/gotinha.png');
+  imagemSlime = loadImage('imagens/inimigos/gotinha.png');
+  imagemTroll = loadImage('imagens/inimigos/troll.png');
+  imagemSlimeVoador = loadImage('imagens/inimigos/gotinha-voadora.png');
+
   bgm = loadSound('sons/trilha_jogo.mp3');
   jumpSound = loadSound('sons/somPulo.mp3');
   gameover = loadImage("imagens/assets/game-over.png");
   personagemDead = loadImage("imagens/personagem/dead.png");
+
+  inimigos=[];
+  cenarios = [];
 }
 
 function setup() {
   const scr = createCanvas(windowWidth, windowHeight);
-  cenarios = [];
+  
+  const cPlayer = new ConfigurationFactory("player");
+  //generate monster factory
+  const cSlime = new ConfigurationFactory("slime");
+  const cTroll = new ConfigurationFactory("troll");
+  const cFSlime = new ConfigurationFactory("flyingSlime");
+  
+  scoreBoard = new Pontuacao();
+
   for(let i=0;i<LAYER_SCENARIO_COUNT;i++){
-    cenarios.push(new Cenario(imagensCenarios[i], i*2));
+    cenarios.push(new Cenario(imagensCenarios[i], i * 2));
   }
+
   endgame = false;
-  personagem = new Personagem(imagemPersonagem);
-  inimigo = new Inimigo(imagemInimigo,
-                        width - 104,
-                        height - 104,
-                        slimeConfig.spriteOffsetX,
-                        slimeConfig.spriteOffsetY,
-                        slimeConfig.spriteFrameCount,
-                        slimeConfig.spriteFrameLine,
-                        slimeConfig.spriteZoomOut,
-                        slimeConfig.speed);
+  personagem = new Personagem(imagemPersonagem,cPlayer);
+
+  inimigos.push(
+    new Inimigo(imagemSlime, cSlime),
+    new Inimigo(imagemTroll, cTroll),
+    new Inimigo(imagemSlimeVoador, cFSlime));
 
   bgm.setVolume(0.1);
   bgm.loop();
+
   frameRate(22);
 }
 
 function draw() {
-  for(let i=0;i<LAYER_SCENARIO_COUNT;i++){
+  //Draw all layers, except the last
+  for(let i=0; i < LAYER_SCENARIO_COUNT - 1; i++){
     let cenario = cenarios[i];
     cenario.exibe();
-
     cenario.move();
-
   }
-  inimigo.exibe();
-  
+
   personagem.exibe();
   personagem.aplicaGravidade();
-
-  if (personagem.estaColidindo(inimigo)){
-    console.log("bateu");
-    endGameNow();
-    noLoop();
-    
+  
+  for(let i =0; i<inimigos.length; i++){
+    let enemy = inimigos[i];
+    enemy.exibe();
+    //Check collision
+    if (personagem.estaColidindo(enemy)){
+      console.log("bateu");
+      endGameNow();
+      noLoop();
+      break;
+    }
+  }  
+  
+  if(!endgame){
+    scoreBoard.exibe();
+    scoreBoard.score();
+    //LAST THING TO RUN
+    //Draw the last scenario layer
+    cenarios[LAYER_SCENARIO_COUNT-1].exibe(60);
+    cenarios[LAYER_SCENARIO_COUNT-1].move();
   }
+  
 }
 
 function endGameNow(){
@@ -87,6 +112,7 @@ function endGameNow(){
   image(personagemDead,width/2-180, height/2-50,240,240);
   fill("fff");
   textSize(32);
+  textAlign(LEFT);
   text("Pressione <ENTER> para recomeçar",width/2-260,height-50)
   endgame = true;
   bgm.stop();
@@ -103,3 +129,11 @@ function keyPressed(){
     window.location.reload();
   }
 }
+
+//TODO:
+/*
+  fix collision
+  one monster at a time
+  begin game screen
+  power up
+*/

@@ -1,23 +1,29 @@
 class Animacao{
-    constructor(imagem, x, y, spriteOffsetX, spriteOffsetY, spriteFrameCount, spriteFrameLine, spriteZoomOut, speed ){
-
+    constructor(imagem, config){ //x, y, spriteOffsetX, spriteOffsetY, spriteFrameCount, spriteFrameLine, spriteZoomOut, speed, ignoreSpriteFrames=0 ){
+        
         //sprite block horizontal position
-        this.spriteOffsetX = spriteOffsetX; 
+        this.spriteOffsetX = config.configuration.spriteOffsetX; 
         
         //sprite block vertical position
-        this.spriteOffsetY = spriteOffsetY;
+        this.spriteOffsetY = config.configuration.spriteOffsetY;
 
         //magic number to "zoom out" the sprite
-        this.spriteZoomOut = spriteZoomOut; 
+        this.spriteZoomOut = config.configuration.spriteZoomOut; 
 
         //total of frames from my spritesheet
-        this.spriteFrameCount = spriteFrameCount;
+        this.spriteFrameCount = config.configuration.spriteFrameCount;
         
         //total of frames of an entire line of my spritesheet
-        this.spriteFrameLine = spriteFrameLine; 
+        this.spriteFrameLine = config.configuration.spriteFrameLine; 
 
         //linear array containing the horizontal and vertical positions to update the blocks
-        const sprGen = new SpriteGenerator(spriteOffsetX,spriteOffsetY,spriteFrameCount,spriteFrameLine);
+        const sprGen = new SpriteGenerator(
+                                        config.configuration.spriteOffsetX,
+                                        config.configuration.spriteOffsetY,
+                                        config.configuration.spriteFrameCount,
+                                        config.configuration.spriteFrameLine,
+                                        config.configuration.ignoreLastSpriteFrames);
+                                        
         this.matriz = sprGen.SpriteArray;
 
         //current frame being drawn
@@ -26,13 +32,16 @@ class Animacao{
         this.imagem = imagem;
 
         //horizontal position on screen
-        this.x = x;
+        this.x = config.configuration.xPosition;
         //vertical position on screen
-        this.y = y;
+        this.y = config.configuration.yPosition;
 
         //moving position speed
-        this.speed=speed;
+        this.speed = config.configuration.speed;
         
+        //checks if the subject is erratic, i.e. it moves up and down at will;
+        this.isErratic = config.configuration.isErratic;
+
         this.frame=0;
     }
 

@@ -1,16 +1,17 @@
 class Personagem extends Animacao {
-    constructor(imagem,
-        x=0,y=0, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1){
-        //y=height-this.spriteOffsetY/this.spriteZoomOut;
-        super(imagem,x,y=height-spriteOffsetY/spriteZoomOut, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1);
+    constructor(imagem, config){ // x=0, y=0, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1){
+        config.configuration.yPosition = height - config.configuration.spriteOffsetY / config.configuration.spriteZoomOut - config.configuration.variationY;
+
+        super(imagem, config);//x,y, spriteOffsetX=220, spriteOffsetY=270, spriteFrameCount=16, spriteFrameLine=4,spriteZoomOut=1.1);
         
-        this.baseY = y; //height-spriteOffsetY/spriteZoomOut;
+        this.baseY = config.configuration.yPosition;
 
         this.jumpSpeed = 0;
         this.gravity = 6;
 
         this.jumpLimit=2;
         this.jumps = 0;
+        this.jumpHeight = 60;
 
         this._w = this.spriteOffsetX/this.spriteZoomOut;
         this._h = this.spriteOffsetY/this.spriteZoomOut;
@@ -18,7 +19,7 @@ class Personagem extends Animacao {
 
     pula(){
         if (this.jumps < this.jumpLimit){
-            this.jumpSpeed = -50;
+            this.jumpSpeed = -this.jumpHeight;
             this.jumps++;
         }
     }
