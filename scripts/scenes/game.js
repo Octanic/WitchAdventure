@@ -62,7 +62,7 @@ class Game{
         if (personagem.estaColidindo(enemy)){
             this.vida.lifeDown();
             personagem.setInvincible();
-
+            hitSound.play();
             if (this.vida.lifeQty === 0){
                 endGameNow();
                 noLoop();

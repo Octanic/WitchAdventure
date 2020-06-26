@@ -17,7 +17,8 @@ let game,
     bgm,
     gameover,
     endgame,
-    jumpSound;
+    jumpSound,
+    hitSound;
 
 let personagem,
     slime,

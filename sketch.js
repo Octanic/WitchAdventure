@@ -17,6 +17,7 @@ function preload() {
 
   bgm = loadSound('sons/trilha_jogo.mp3');
   jumpSound = loadSound('sons/somPulo.mp3');
+  hitSound = loadSound('sons/hit.mp3');
   gameover = loadImage("imagens/assets/game-over.png");
   personagemDead = loadImage("imagens/personagem/dead.png");
 
@@ -85,8 +86,7 @@ function keyPressed(){
 
 //TODO:
 /*
-  damage sfx
-  points
+  points - localstorage and gameover
   power up
   stages
 */
