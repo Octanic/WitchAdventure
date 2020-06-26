@@ -113,7 +113,7 @@ class Intro{
                 "white",
                 30,
                 height-100 + cos(frameCount*.3),
-                5 )
+                2 )
 
 
     }

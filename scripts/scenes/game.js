@@ -64,7 +64,7 @@ class Game{
             personagem.setInvincible();
             hitSound.play();
             if (this.vida.lifeQty === 0){
-                endGameNow();
+                this.endGameNow();
                 noLoop();
             }
         }
@@ -93,4 +93,20 @@ class Game{
         inimigos[this.inimigoAtual].x = width;
         return parseInt(random(0,inimigos.length));
     }
+
+    endGameNow(){
+        background(0);
+        image(gameover, width/2-412/2, height/2-78/2);
+        image(personagemDead,width/2-180, height/2-50,240,240);
+        fill("fff");
+        textSize(32);
+        textAlign(LEFT);
+        let g1="Pressione <ENTER> para tentar novamente";
+        text(g1, width/2-textWidth(g1)/2, height-50);
+        let g2 = `Seus pontos: ${this.scoreBoard.pontos}`;
+        text(g2, width/2-textWidth(g2),height-150);
+        endgame = true;
+        bgm.stop();
+        this.scoreBoard.saveScore();
+      }
 }

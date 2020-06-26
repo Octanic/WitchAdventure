@@ -63,30 +63,15 @@ function draw() {
   
 }
 
-function endGameNow(){
-  background(0);
-  image(gameover, width/2-412/2, height/2-78/2);
-  image(personagemDead,width/2-180, height/2-50,240,240);
-  fill("fff");
-  textSize(32);
-  textAlign(LEFT);
-  text("Pressione <ENTER> para tentar novamente",width/2-260,height-50)
-  endgame = true;
-  bgm.stop();
-}
-
 function keyPressed(){
   console.log(key);
   cenas[currentScene].keyPressed(key);
-  // game.keyPressed(key);
 }
-
-
 
 
 //TODO:
 /*
-  points - localstorage and gameover
+  
   power up
   stages
 */

@@ -14,4 +14,18 @@ class Pontuacao{
         this.pontos+=1;
     }
 
+    isHighScore(){
+        return this.pontos > this.getHighScore();
+    }
+
+    getHighScore(){
+        return localStorage.getItem("score");
+    }
+    
+    saveScore(){
+        if (this.isHighScore()){
+            localStorage.setItem("score", this.pontos);
+        }
+    }
+
 }

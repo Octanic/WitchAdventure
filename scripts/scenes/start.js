@@ -5,7 +5,8 @@ class Start{
 
     setup(){
         
-        
+        let scoreBoard = new Pontuacao();
+        this.highScore = scoreBoard.getHighScore(); 
         
     }
 
@@ -21,7 +22,7 @@ class Start{
         ];
 
         startColor = [
-            200 + sin(frameCount*0.1) * 25,
+            200 + cos(frameCount*0.1) * 25,
             200 + cos(frameCount*0.1) * 25,
             200 + sin(frameCount*0.1) * 25
         ]
@@ -40,14 +41,23 @@ class Start{
                     height/2 +5*cos(frameCount*.1),
                     5);
 
-        let play = "Enter to PLAY";
+        const hs = `Melhor jogo: ${this.highScore} pontos`;
+        textSize(45);
+        drawText(hs,
+            45,
+            startColor.reverse(), 
+            width / 2 - textWidth(hs)/2,
+            height-180 + sin(frameCount*.15),
+            2);
+
+        let play = "Enter para JOGAR";
         textSize(52);
         drawText(play,
-                       52,
-                       startColor,
-                       width / 2 - textWidth(play)/2,
-                       height-100 + sin(frameCount*.09),
-                       5 );
+                    52,
+                    startColor,
+                    width / 2 - textWidth(play)/2,
+                    height-100 + sin(frameCount*.09),
+                    5 );
 
     }
 

@@ -26,7 +26,7 @@ let personagem,
     personagemDead,
     slimeVoador;
 
-let currentScene='game',
+let currentScene='start',
 // let currentScene='start',
     cenas;
 
