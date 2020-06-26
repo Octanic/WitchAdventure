@@ -46,6 +46,7 @@ class Intro{
 
     draw(){
         textFont("Lucida Console");
+            
         switch(this.stage){
             case 0:
                 this.cenario2.exibe();
@@ -114,8 +115,16 @@ class Intro{
                 30,
                 height-100 + cos(frameCount*.3),
                 2 )
-
-
+        
+        textSize(25);
+        const skipT="Pressione x para pular a intro";
+        drawText(
+            skipT,
+            25, 
+            "white",
+            width - textWidth(skipT)-20,
+            50,
+            2);
     }
 
     keyPressed(key){

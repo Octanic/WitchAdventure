@@ -41,7 +41,7 @@ class Start{
                     height/2 +5*cos(frameCount*.1),
                     5);
 
-        const hs = `Melhor jogo: ${this.highScore} pontos`;
+        const hs = `melhor jogo: ${this.highScore} pontos`.toUpperCase();
         textSize(45);
         drawText(hs,
             45,
@@ -56,7 +56,7 @@ class Start{
                     52,
                     startColor,
                     width / 2 - textWidth(play)/2,
-                    height-100 + sin(frameCount*.09),
+                    height-100 + sin(frameCount*.25),
                     5 );
 
     }
