@@ -37,9 +37,11 @@ With those variables, I can calculate *almost* every spritesheet, ~~except when 
 Unless someone decides really hard to create a spritesheet with the purpose of defeating my ``SpriteGenerator``. But since all my sprites are both regular and irregular ~~and not trying hard to defeat my ``SpriteGenerator``~~, it will be fine.
 
 ## Erratic creatures
-I can give chaos to creatures. By setting this parameter ``isErratic: true`` in the creature configuration, Creatures will change their speeds and may go up and down randomly. This is specially nice for ``flying creatures``. It's an idea first, I think I can improve it to be a little smoothier.
+I can give chaos to creatures. By setting this parameter ``isErratic: true`` in the creature configuration, Creatures will move vertically like a seesaw. This is specially nice for ``flying creatures``. I could make it smoothier than the previous version. I had to remove the speed variation, because since Hipsta is dealing with one opponent at a time, I can't afford to have a sloooow enemy (this means more points for the player, and a surely boring gameplay), and I implemented a sin calculation in order to make it go up and down smoothly.
 
 # Final words
 I really don't feel like changing the sprites. I think I can make something with those sprites I was given. 
+We're at day 4 and I've already spent a lot of time tinkering with this game! I can't get enough of it. It's fun to see things improving.
+I have a lot to polish in this game. 
 
 Also, I think this can be something to begin some old game projects. Anyway, I hope to learn a lot from this immersion. 
