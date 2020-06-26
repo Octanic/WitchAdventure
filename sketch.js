@@ -35,6 +35,8 @@ function preload() {
     stage5_3: loadImage("imagens/assets/item3.png")
 
   }
+
+  imagemCoracao = loadImage("imagens/assets/coracao.png");
 }
 
 function setup() {
@@ -78,14 +80,13 @@ function keyPressed(){
   // game.keyPressed(key);
 }
 
-function getRandomEnemy(){
-  return parseInt(random(0,inimigos.length));
-}
+
 
 
 //TODO:
 /*
-  intro
+  damage sfx
   points
   power up
+  stages
 */

@@ -26,14 +26,14 @@ class Start{
             200 + sin(frameCount*0.1) * 25
         ]
 
-        this.drawText("Hipsta", 
+        drawText("Hipsta", 
                     width/12+10,
                     titleColor,
                     width/3.5,
                     height/2-(width/12)+20+ 5*sin(frameCount*.1),
                     5);
         
-        this.drawText("Adventures", 
+        drawText("Adventures", 
                     width/12,
                     titleColor,
                     width/2.5,
@@ -42,7 +42,7 @@ class Start{
 
         let play = "Enter to PLAY";
         textSize(52);
-        this.drawText(play,
+        drawText(play,
                        52,
                        startColor,
                        width / 2 - textWidth(play)/2,
@@ -58,14 +58,14 @@ class Start{
 
     }
 
-    drawText(value, size, cor, posX, posY,dropShadow=0){
-        textSize(size);
-        if (dropShadow){
-            fill("black");
-            text(value, posX+dropShadow, posY+dropShadow);
-        }
-        fill(cor);
-        text(value, posX, posY);
+    // drawText(value, size, cor, posX, posY,dropShadow=0){
+    //     textSize(size);
+    //     if (dropShadow){
+    //         fill("black");
+    //         text(value, posX+dropShadow, posY+dropShadow);
+    //     }
+    //     fill(cor);
+    //     text(value, posX, posY);
 
-    }
+    // }
 }

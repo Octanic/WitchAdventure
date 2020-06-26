@@ -5,7 +5,7 @@ class Game{
     }
 
     setup(){
-
+        this.vida = new Vida(3,3);
         const cPlayer = new ConfigurationFactory("player");
         //generate monster factory
         const cSlime = new ConfigurationFactory("slime");
@@ -25,7 +25,7 @@ class Game{
             new Inimigo(imagemSlime, cSlime),
             new Inimigo(imagemTroll, cTroll),
             new Inimigo(imagemSlimeVoador, cFSlime));
-        this.inimigoAtual = getRandomEnemy();
+        this.inimigoAtual = this.getRandomEnemy();
 
         bgm.setVolume(0.1);
         bgm.loop();
@@ -50,21 +50,27 @@ class Game{
         
         enemy.exibe();
 
+        this.scoreBoard.exibe();
         if (isEnemyVisible){
-            this.inimigoAtual = getRandomEnemy();
+            this.scoreBoard.score();
+            this.inimigoAtual = this.getRandomEnemy();
             enemy.speed = parseInt(random(10,38));
         }
 
+        this.vida.draw();
         //Check collision
         if (personagem.estaColidindo(enemy)){
-            console.log("bateu");
-            endGameNow();
-            noLoop();
+            this.vida.lifeDown();
+            personagem.setInvincible();
+
+            if (this.vida.lifeQty === 0){
+                endGameNow();
+                noLoop();
+            }
         }
         
         if(!endgame){
-            this.scoreBoard.exibe();
-            this.scoreBoard.score();
+            
             //LAST THING TO RUN
             //Draw the last scenario layer
             cenarios[LAYER_SCENARIO_COUNT-1].exibe(60);
@@ -81,5 +87,10 @@ class Game{
             game.setup();
             loop();
           }
+    }
+
+    getRandomEnemy(){
+        inimigos[this.inimigoAtual].x = width;
+        return parseInt(random(0,inimigos.length));
     }
 }

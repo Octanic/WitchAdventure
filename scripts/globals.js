@@ -4,7 +4,8 @@ let imagensCenarios,
     imagemTroll,
     imagemSlimeVoador,
     imagemCrow,
-    imagemDano;
+    imagemDano,
+    imagemCoracao;
 
 let startImage,
     startFont;
@@ -24,7 +25,8 @@ let personagem,
     personagemDead,
     slimeVoador;
 
-let currentScene='start',
+let currentScene='game',
+// let currentScene='start',
     cenas;
 
 const LAYER_SCENARIO_COUNT = 5;

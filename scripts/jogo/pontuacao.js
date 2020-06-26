@@ -11,7 +11,7 @@ class Pontuacao{
     }
 
     score(){
-        this.pontos+=.02;
+        this.pontos+=1;
     }
 
 }

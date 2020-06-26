@@ -49,6 +49,8 @@ class Animacao{
         this.hitBoxPrecisionH = config.configuration.hitBoxPrecisionH;
 
         this.frame=0;
+        this.isBlinking =false;
+        this._backup = imagem;
     }
 
     exibe(){
@@ -69,6 +71,15 @@ class Animacao{
     move(){
 
     }
+    
+    blink(){
+        this.isBlinking = true;
+        this.imagem.filter(INVERT);
+    }
+    stopBlinking(){
+        this.image = this._backup;
+        this.isBlinking = false;
+    }
 
     //Function used to animate the frames
     anima() {
@@ -76,6 +87,10 @@ class Animacao{
 
         if (this.frame >= this.matriz.length-1){
             this.frame = 0;
+        }
+
+        if (this.isBlinking){
+            this.blink();
         }
     }
 
