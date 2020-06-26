@@ -37,18 +37,20 @@ class Personagem extends Animacao {
 
     estaColidindo(inimigo){
         //For debug purposes
-        // stroke("red");
-        // noFill();
-        // rect(this.x+this.hitBoxXOffset,
-        //     this.y+this.hitBoxXOffset,
-        //     this._w*this.hitBoxPrecisionW,
-        //     this._h*this.hitBoxPrecisionH);
+        if (DEBUG_MODE_ON){
+            stroke("red");
+            noFill();
+            rect(this.x+this.hitBoxXOffset,
+                this.y+this.hitBoxXOffset,
+                this._w*this.hitBoxPrecisionW,
+                this._h*this.hitBoxPrecisionH);
+            
+            rect(inimigo.x+inimigo.hitBoxXOffset,
+                inimigo.y+inimigo.hitBoxYOffset,
+                inimigo.spriteOffsetX * inimigo.hitBoxPrecisionW,
+                inimigo.spriteOffsetY * inimigo.hitBoxPrecisionH)
+        }
         
-        // rect(inimigo.x+inimigo.hitBoxXOffset,
-        //     inimigo.y+inimigo.hitBoxYOffset,
-        //     inimigo.spriteOffsetX * inimigo.hitBoxPrecisionW,
-        //     inimigo.spriteOffsetY * inimigo.hitBoxPrecisionH)
-
         const colisao = collideRectRect(
             this.x+this.hitBoxXOffset,
             this.y+this.hitBoxXOffset,

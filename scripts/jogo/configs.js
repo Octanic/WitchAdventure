@@ -39,6 +39,44 @@ class ConfigurationFactory{
                     hitBoxPrecisionH:.7               
                 };
                 break;
+            case "flyingPlayer":
+                this.configuration = {
+                    xPosition: 0,
+                    yPosition: 0,
+                    spriteFrameCount: 25,
+                    spriteFrameLine: 5,
+                    spriteOffsetX: 480,
+                    spriteOffsetY: 480,
+                    spriteZoomOut: 1.1,
+                    speed: 0,
+                    variationY: 30,
+                    ignoreLastSpriteFrames:2,
+                    isErratic: false,
+                    hitBoxXOffset:60,
+                    hitBoxYOffset:30,
+                    hitBoxPrecisionW:.4,
+                    hitBoxPrecisionH:.7 
+                };
+                break;
+            case "damagedPlayer":
+                this.configuration = {
+                    xPosition: 0,
+                    yPosition: 0,
+                    spriteFrameCount: 15,
+                    spriteFrameLine: 5,
+                    spriteOffsetX: 480,
+                    spriteOffsetY: 480,
+                    spriteZoomOut: 1.1,
+                    speed: 0,
+                    variationY: 30,
+                    ignoreLastSpriteFrames:2,
+                    isErratic: false,
+                    hitBoxXOffset:60,
+                    hitBoxYOffset:30,
+                    hitBoxPrecisionW:.4,
+                    hitBoxPrecisionH:.7 
+                };
+                break;
             case "slime":
                 this.configuration = {
                     xPosition: width + 104,
@@ -90,6 +128,26 @@ class ConfigurationFactory{
                     variationY:0,
                     ignoreLastSpriteFrames: 0,
                     isErratic: true,
+                    hitBoxXOffset:50,
+                    hitBoxYOffset:30, 
+                    hitBoxPrecisionW:.5,
+                    hitBoxPrecisionH:.7  
+                };
+                break;
+            }
+            case "crow":{
+                this.configuration = {
+                    xPosition: width/5+random(100,200),
+                    yPosition: height/3+random(40,200),
+                    spriteFrameCount: 8,
+                    spriteFrameLine: 8,
+                    spriteOffsetX: 200,
+                    spriteOffsetY: 200,
+                    spriteZoomOut: 1,
+                    speed: 0,
+                    variationY:0,
+                    ignoreLastSpriteFrames: 0,
+                    isErratic: false,
                     hitBoxXOffset:50,
                     hitBoxYOffset:30, 
                     hitBoxPrecisionW:.5,

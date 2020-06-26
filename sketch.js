@@ -23,6 +23,18 @@ function preload() {
   inimigos=[];
   cenarios = [];
 
+  //intro assets
+  introAssets = {
+    stage1: loadImage("imagens/personagem/voando.png"),
+    stage1bg1: loadImage("imagens/cenario/introbg1.png"),
+    stage1bg2: loadImage("imagens/cenario/introbg2.png"),
+    stage2: loadImage("imagens/assets/crow.png"),
+    stage3: loadImage("imagens/personagem/dano.png"),
+    stage5_1: loadImage("imagens/assets/item1.png"),
+    stage5_2: loadImage("imagens/assets/item2.png"),
+    stage5_3: loadImage("imagens/assets/item3.png")
+
+  }
 }
 
 function setup() {
@@ -32,10 +44,13 @@ function setup() {
   game.setup();
   start = new Start();
   start.setup();
+  intro = new Intro();
+  intro.setup();
 
   cenas = {
     game,
-    start
+    start,
+    intro
   };
   frameRate(22);
 }
@@ -70,6 +85,7 @@ function getRandomEnemy(){
 
 //TODO:
 /*
-  begin game screen
+  intro
+  points
   power up
 */

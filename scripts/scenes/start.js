@@ -5,12 +5,12 @@ class Start{
 
     setup(){
         
-        textFont(startFont);
         
         
     }
 
     draw(){
+        textFont(startFont);
         let titleColor = [];
         let startColor = [];
         image(startImage,0,0,width,height);
@@ -53,7 +53,7 @@ class Start{
 
     keyPressed(key){
         if (key === "Enter"){
-            currentScene = "game";
+            currentScene = "intro";
         }
 
     }
@@ -68,20 +68,4 @@ class Start{
         text(value, posX, posY);
 
     }
-
-
-    drw(){
-        beginShape();
-        translate(-this.bounds.x * width / this.bounds.w, -this.bounds.y * height / this.bounds.h);
-        for (let i = 0; i < this.points.length; i++) {
-            let p = this.points[i];
-            vertex(
-            p.x * width / this.bounds.w +
-                sin(20 * p.y / this.bounds.h + millis() / 1000) * width / 30,
-            p.y * height / this.bounds.h
-            );
-        }
-        endShape(CLOSE);
-    }
-
 }

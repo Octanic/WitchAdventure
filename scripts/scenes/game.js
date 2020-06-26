@@ -5,6 +5,7 @@ class Game{
     }
 
     setup(){
+
         const cPlayer = new ConfigurationFactory("player");
         //generate monster factory
         const cSlime = new ConfigurationFactory("slime");
@@ -30,7 +31,9 @@ class Game{
         bgm.loop();
     }
 
-    draw(){        
+    draw(){       
+        textFont(startFont);
+
         //Draw all layers, except the last
         for(let i=0; i < LAYER_SCENARIO_COUNT - 1; i++){
             let cenario = cenarios[i];
