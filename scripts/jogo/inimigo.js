@@ -2,13 +2,13 @@ class Inimigo extends Animacao{
     constructor(imagem, config){ //x, y, spriteOffsetX, spriteOffsetY, spriteFrameCount, spriteFrameLine, spriteZoomOut, speed, ignoreSpriteFrames ){
         super(imagem, config) //x, y, spriteOffsetX, spriteOffsetY, spriteFrameCount, spriteFrameLine, spriteZoomOut, speed, ignoreSpriteFrames);
         this.FRAME_DELAY =200;
-
+        this.isDead = false;
     }
 
     move(){
-
         this.x -= this.speed;
         
+        if (this.isDead) return;
         if (this.isErratic){
             const baseline = height - this.spriteOffsetY-300;
 

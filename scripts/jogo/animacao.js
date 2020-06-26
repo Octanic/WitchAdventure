@@ -54,6 +54,7 @@ class Animacao{
     }
 
     exibe(){
+        if (!this.isBlinking) this.imagem = this._backup;
         image(this.imagem, 
                 this.x, //x
                 this.y, //y

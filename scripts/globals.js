@@ -26,12 +26,12 @@ let personagem,
     personagemDead,
     slimeVoador;
 
-let currentScene='start',
+let currentScene='game',
 // let currentScene='start',
     cenas;
 
 const LAYER_SCENARIO_COUNT = 5;
-const DEBUG_MODE_ON = false;
+const DEBUG_MODE_ON = true;
 
 function drawText(value, size, cor, posX, posY,dropShadow=0){
     textSize(size);

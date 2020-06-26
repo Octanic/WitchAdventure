@@ -68,10 +68,3 @@ function keyPressed(){
   cenas[currentScene].keyPressed(key);
 }
 
-
-//TODO:
-/*
-  
-  power up
-  stages
-*/
