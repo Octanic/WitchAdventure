@@ -16,6 +16,9 @@ Will she find her way out with her beloved magic items?
 # Where to play?
 https://upbeat-swanson-5add6b.netlify.app
 
+# Watch me playing
+https://www.youtube.com/watch?v=gA93WnFzHuM
+
 # And now back to our regular programming #
 This is a game I'm making during **Imersão GameDev by Alura**, where we are being acquainted to the p5.js framework to create games using JavaScript. 
 I have used BitBLT, XNA to develop games back in the days, and it seems way more simpler than those technologies. 
