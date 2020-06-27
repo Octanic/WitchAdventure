@@ -11,7 +11,7 @@ class Pontuacao{
     }
 
     score(){
-        this.pontos+=5;
+        this.pontos+=1;
     }
 
     isHighScore(){

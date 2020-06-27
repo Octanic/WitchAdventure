@@ -170,7 +170,7 @@ class Game{
 
         if (!this.spawnTreasure && 
             this.scoreBoard.pontos>0 &&
-            this.scoreBoard.pontos % 10*(personagem.treasures+1) == 0 && //makes 10 points = first prize; 20, second; 30 third...
+            this.scoreBoard.pontos >= 10*(personagem.treasures+1)  && //makes 10 points = first prize; 20, second; 30 third...
             treasureChance <= this.TREASURE_CHANCE){
 
             this.spawnTreasure = true;
