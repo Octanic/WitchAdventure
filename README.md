@@ -1,10 +1,9 @@
-# WitchAdventure
-**An adventure game powered by Imersão GameDev @ Alura**
+# Hipsta Adventures
+**An adventure sidescrolling game powered by Imersão GameDev @ Alura**
 
-~~I'm trying to find a better name for this, don't worry.~~
 
 # Story
-Ripsta was flying back home after a day of witch work with her magic broom when a flock of crows suddenly attacked her, leaving her `magic wand`, `spellbook` and her `broom` scattered all around the hidden forest. 
+Hipsta was flying back home after a day of witch work with her magic broom when a flock of crows suddenly attacked her, leaving her `magic wand`, `spellbook` and her `broom` scattered all around the hidden forest. 
 
 You have to find your way to recover your beloved magical artifacts and go home.
 
@@ -39,9 +38,14 @@ Unless someone decides really hard to create a spritesheet with the purpose of d
 ## Erratic creatures
 I can give chaos to creatures. By setting this parameter ``isErratic: true`` in the creature configuration, Creatures will move vertically like a seesaw. This is specially nice for ``flying creatures``. I could make it smoothier than the previous version. I had to remove the speed variation, because since Hipsta is dealing with one opponent at a time, I can't afford to have a sloooow enemy (this means more points for the player, and a surely boring gameplay), and I implemented a sin calculation in order to make it go up and down smoothly.
 
-# Final words
-I really don't feel like changing the sprites. I think I can make something with those sprites I was given. 
-We're at day 4 and I've already spent a lot of time tinkering with this game! I can't get enough of it. It's fun to see things improving.
-I have a lot to polish in this game. 
+## Items with powers
+The player can catch the magic items and take advantage of them. 
+- The ``staff`` will give her a shield spell, which will reload time to time. 
+- The ``broom`` will give her the ability to jump 4 times. 
+- The ``spellbook`` will complete the game.
 
-Also, I think this can be something to begin some old game projects. Anyway, I hope to learn a lot from this immersion. 
+## Infinite mode
+Let's say Hipsta really wants to give those monsters a hard time, but fully powered up! Just for the score's sake. Try out your abilities to reach the best score you can get. Only available after completing the game once.
+
+# Final words
+This was an awesome experience. 5 days of learning, trial and error, and helping the community with whatever wrong happened. It was a blast.
