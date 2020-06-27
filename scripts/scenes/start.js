@@ -70,6 +70,13 @@ class Start{
                 height-45 + sin(frameCount*.15),
                 2);
         }
+
+        drawText("github.com/Octanic/WitchAdventure".toUpperCase(),
+            25,
+            titleColor.reverse(),
+            30,
+            30 + sin(frameCount*.25),
+            2 );
     }
 
     keyPressed(key){
