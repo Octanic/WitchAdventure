@@ -4,10 +4,12 @@ class Start{
     }
 
     setup(){
-        
+        bgm.stop();
         let scoreBoard = new Pontuacao();
         this.highScore = scoreBoard.getHighScore(); 
-        
+        this.infiniteMode = localStorage.getItem("infiniteMode")==="true";
+        bgm.setVolume(0.1);
+        bgm.loop();
     }
 
     draw(){
@@ -58,24 +60,34 @@ class Start{
                     width / 2 - textWidth(play)/2,
                     height-100 + sin(frameCount*.25),
                     5 );
-
+        if (this.infiniteMode){
+            const hs = `Pressione ' I ' para modo infinito`.toUpperCase();
+            textSize(30);
+            drawText(hs,
+                30,
+                startColor, 
+                width / 2 - textWidth(hs)/2,
+                height-45 + sin(frameCount*.15),
+                2);
+        }
     }
 
     keyPressed(key){
         if (key === "Enter"){
+            infiniteMode=false;
             currentScene = "intro";
+        }
+        if (key === "Delete"){
+            localStorage.setItem("infiniteMode",false);
+            localStorage.setItem("score", 0);
+            window.location.reload();
+        }
+        if (key === "i" && this.infiniteMode){
+            infiniteMode=true;
+            currentScene = "game";
+            cenas[currentScene].setup();
+
         }
 
     }
-
-    // drawText(value, size, cor, posX, posY,dropShadow=0){
-    //     textSize(size);
-    //     if (dropShadow){
-    //         fill("black");
-    //         text(value, posX+dropShadow, posY+dropShadow);
-    //     }
-    //     fill(cor);
-    //     text(value, posX, posY);
-
-    // }
 }

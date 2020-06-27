@@ -22,6 +22,7 @@ class ConfigurationFactory{
         switch (type){
             case "player":
                 this.configuration = {
+                    type: "player",
                     xPosition: 0,
                     yPosition: 0,
                     spriteFrameCount: 16,
@@ -41,6 +42,7 @@ class ConfigurationFactory{
                 break;
             case "flyingPlayer":
                 this.configuration = {
+                    type: "player",
                     xPosition: 0,
                     yPosition: 0,
                     spriteFrameCount: 25,
@@ -60,6 +62,7 @@ class ConfigurationFactory{
                 break;
             case "damagedPlayer":
                 this.configuration = {
+                    type: "player",
                     xPosition: 0,
                     yPosition: 0,
                     spriteFrameCount: 15,
@@ -79,6 +82,7 @@ class ConfigurationFactory{
                 break;
             case "slime":
                 this.configuration = {
+                    type: "slime",
                     xPosition: width + 104,
                     yPosition: height - 134,
                     spriteFrameCount: 28,
@@ -98,6 +102,7 @@ class ConfigurationFactory{
                 break;
             case "troll":
                 this.configuration = {
+                    type: "troll",
                     xPosition: width+300,
                     yPosition: height-400,
                     spriteFrameCount: 28,
@@ -117,6 +122,7 @@ class ConfigurationFactory{
                 break;
             case "flyingSlime": {
                 this.configuration = {
+                    type: "slime",
                     xPosition: width+104,
                     yPosition: height-450,
                     spriteFrameCount: 13,
@@ -135,8 +141,9 @@ class ConfigurationFactory{
                 };
                 break;
             }
-            case "crow":{
+            case "crow":
                 this.configuration = {
+                    type: "monster",
                     xPosition: width/5+random(100,200),
                     yPosition: height/3+random(40,200),
                     spriteFrameCount: 8,
@@ -154,7 +161,27 @@ class ConfigurationFactory{
                     hitBoxPrecisionH:.7  
                 };
                 break;
-            }
+            
+            case "treasure":
+                this.configuration = {
+                    type:"item",
+                    xPosition: width+104,
+                    yPosition: height-450,
+                    spriteFrameCount: 1,
+                    spriteFrameLine: 1,
+                    spriteOffsetX: 180,
+                    spriteOffsetY: 192,
+                    spriteZoomOut: 1,
+                    speed: 13,
+                    variationY:0,
+                    ignoreLastSpriteFrames: 0,
+                    isErratic: true,
+                    hitBoxXOffset:90,
+                    hitBoxYOffset:90, 
+                    hitBoxPrecisionW:.5,
+                    hitBoxPrecisionH:.7
+                }
+                break;
 
         }
 

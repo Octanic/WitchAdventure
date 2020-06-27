@@ -17,12 +17,17 @@ class Personagem extends Animacao {
         this._h = this.spriteOffsetY/this.spriteZoomOut;
         
         this.invincible = false;
+
+        this.treasures = 0;
     }
 
     pula(){
+        if (this.treasures === 2) this.jumpLimit = 4;
+
         if (this.jumps < this.jumpLimit){
             this.jumpSpeed = -this.jumpHeight;
             this.jumps++;
+            jumpSound.play();
         }
     }
 
@@ -41,7 +46,7 @@ class Personagem extends Animacao {
         this.isBlinking = true;
         setTimeout(() => {
             this.invincible = false;
-            this.stopBlinking();
+            this.stopBlinking();            
         }, 2000);
     }
     estaColidindo(inimigo){
@@ -60,7 +65,7 @@ class Personagem extends Animacao {
                 inimigo.spriteOffsetY * inimigo.hitBoxPrecisionH)
         }
         
-        if(this.invincible) return false;
+        if(this.invincible && inimigo.type != "item") return false;
 
         const colisao = collideRectRect(
             this.x+this.hitBoxXOffset,

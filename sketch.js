@@ -49,11 +49,14 @@ function setup() {
   start.setup();
   intro = new Intro();
   intro.setup();
-
+  win = new Win();
+  win.setup();
+  
   cenas = {
     game,
     start,
-    intro
+    intro,
+    win
   };
   frameRate(22);
 }

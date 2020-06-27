@@ -125,6 +125,14 @@ class Intro{
             width - textWidth(skipT)-20,
             50,
             2);
+
+        drawText(
+            "Enter>",
+            25, 
+            "white",
+            width - textWidth("enter>")-30,
+            height -30,
+            2);
     }
 
     keyPressed(key){
@@ -135,6 +143,7 @@ class Intro{
             this.stage++;
             if(this.stage === 5){
                 currentScene = "game";
+                cenas[currentScene].setup();
             }
         }
 

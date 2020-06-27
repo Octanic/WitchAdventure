@@ -26,12 +26,15 @@ let personagem,
     personagemDead,
     slimeVoador;
 
-let currentScene='game',
-// let currentScene='start',
+let currentScore;
+let currentScene='start',
     cenas;
 
+//let you play the game only for the high score
+let infiniteMode = false;
+
 const LAYER_SCENARIO_COUNT = 5;
-const DEBUG_MODE_ON = true;
+const DEBUG_MODE_ON = false;
 
 function drawText(value, size, cor, posX, posY,dropShadow=0){
     textSize(size);

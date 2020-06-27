@@ -30,7 +30,7 @@ class Animacao{
         this.frame = 0;
         //the spritesheet
         this.imagem = imagem;
-
+        this.imagem.ref = "img normal";
         //horizontal position on screen
         this.x = config.configuration.xPosition;
         //vertical position on screen
@@ -50,11 +50,13 @@ class Animacao{
 
         this.frame=0;
         this.isBlinking =false;
-        this._backup = imagem;
+        this.blinkCount = 0;
+        this.type = config.configuration.type;
     }
+    
+  
 
     exibe(){
-        if (!this.isBlinking) this.imagem = this._backup;
         image(this.imagem, 
                 this.x, //x
                 this.y, //y
@@ -75,11 +77,18 @@ class Animacao{
     
     blink(){
         this.isBlinking = true;
-        this.imagem.filter(INVERT);
+        if (frameCount%2 ===0 ){
+            this.imagem.filter(INVERT);
+            this.blinkCount++;
+        }
     }
     stopBlinking(){
-        this.image = this._backup;
         this.isBlinking = false;
+        if (this.blinkCount % 2 !==0){
+            this.imagem.filter(INVERT);
+            this.blinkCount = 0;
+        }        
+
     }
 
     //Function used to animate the frames
