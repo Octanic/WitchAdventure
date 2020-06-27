@@ -1,7 +1,6 @@
 # Hipsta Adventures
 **An adventure sidescrolling game powered by Imersão GameDev @ Alura**
 
-
 # Story
 Hipsta was flying back home after a day of witch work with her magic broom when a flock of crows suddenly attacked her, leaving her `magic wand`, `spellbook` and her `broom` scattered all around the hidden forest. 
 
@@ -13,6 +12,9 @@ She is a beginner, and she doesn't have enough power to cast her spells without 
 The hidden forest is full of weird creatures, such as `slimes` (which some of them can fly), and a `troll`, which is very upset because of all the noise our witch Ripsta is doing.
 
 Will she find her way out with her beloved magic items?
+
+# Where to play?
+https://upbeat-swanson-5add6b.netlify.app
 
 # And now back to our regular programming #
 This is a game I'm making during **Imersão GameDev by Alura**, where we are being acquainted to the p5.js framework to create games using JavaScript. 
@@ -46,6 +48,13 @@ The player can catch the magic items and take advantage of them.
 
 ## Infinite mode
 Let's say Hipsta really wants to give those monsters a hard time, but fully powered up! Just for the score's sake. Try out your abilities to reach the best score you can get. Only available after completing the game once.
+
+# Dealing with the code
+No big issues here, just remember that ``P5.JS`` will not work on a local environment. So you have to launch a ``Live Server`` if you are running this with Visual Studio Code.
+Download it here:
+```
+https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+```
 
 # Final words
 This was an awesome experience. 5 days of learning, trial and error, and helping the community with whatever wrong happened. It was a blast.
