@@ -71,7 +71,7 @@ class Start{
                 2);
         }
 
-        drawText("github.com/Octanic/WitchAdventure".toUpperCase(),
+        drawText("github.com/Octanic/WitchAdventure",
             25,
             titleColor.reverse(),
             30,
