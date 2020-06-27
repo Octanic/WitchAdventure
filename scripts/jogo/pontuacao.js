@@ -19,7 +19,7 @@ class Pontuacao{
     }
 
     getHighScore(){
-        return localStorage.getItem("score");
+        return localStorage.getItem("score")??0;
     }
     
     saveScore(){
