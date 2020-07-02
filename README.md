@@ -1,6 +1,13 @@
 # Hipsta Adventures
 **An adventure sidescrolling game powered by Imersão GameDev @ Alura**
 
+## Award
+I received an **honorable mention**! Check it out!
+
+https://imersao-gamedev.github.io/placar/
+
+Thank you very much for this recognization!!
+
 # Story
 Hipsta was flying back home after a day of witch work with her magic broom when a flock of crows suddenly attacked her, leaving her `magic wand`, `spellbook` and her `broom` scattered all around the hidden forest. 
 
